@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Toggle</title>
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <div class="menu">
+            <h3>WEBSITE</h3>
+            <a href="#" onclick="showSection('home')" class="active">Home</a>
+            <a href="#" onclick="showSection('about')">About</a>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle-btn" id="toggleBtn" onclick="toggleMode()"></div>
+            <span id="modeText">Light Mode</span>
+        </div>
+    </div>
+
+    <div class="container" id="home">
+        <h1>Welcome...,</h1>
+        <p>Website ini mengenai lamaran pekerjaan dan biodata pribadi</p>
+        <p>Berikut syarat lamaran kerja:</p>
+        <ol>
+            <li>Surat Lamaran</li>
+            <li>Biodata Pribadi</li>
+            <li>SKCK</li>
+            <li>Portofolio</li>
+        </ol>
+    </div>
+
+    <div class="container" id="about" style="display: none;">
+        <h1>About Me...,</h1>
+        <p>Pada tahun 2021, saya memutuskan untuk mencoba terjun ke dunia coding dan pengembangan web.
+            Kini saya mendapat kesempatan untuk mempelajari berbagai hal baru di perkuliahan.  
+        </p>
+        <p>Saat saya tidak di depan komputer, saya biasanya berbenah rumah sambil mendengarkan musik, bermain 
+            bersama kucing tetangga, atau tidur.
+        </p>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const navbar = document.getElementById('navbar');
+            const containers = document.querySelectorAll('.container');
+            const toggleBtn = document.getElementById('toggleBtn');
+            const modeText = document.getElementById('modeText');
+
+            if(body.classList.contains('dark-mode-body')) {
+                body.classList.remove('dark-mode-body');
+                navbar.classList.remove('dark-mode-navbar');
+                containers.forEach(container => container.classList.remove('dark-mode-container'));
+                toggleBtn.classList.remove('dark-mode');
+                modeText.textContent = 'Light Mode';
+            }else{
+                body.classList.add('dark-mode-body');
+                navbar.classList.add('dark-mode-navbar');
+                containers.forEach(container => container.classList.add('dark-mode-container'));
+                toggleBtn.classList.add('dark-mode');
+                modeText.textContent = 'Dark Mode';
+            }
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.container');
+            const links = document.querySelectorAll('.navbar a');
+
+            sections.forEach(section => {
+                if(section.id === sectionId) {
+                    section.style.display = 'block';
+                }else{
+                    section.style.display = 'none';
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

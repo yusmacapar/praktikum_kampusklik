@@ -1,0 +1,47 @@
+/* id lebih berat dari kelas*/
+* {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: pink;
+}
+
+#judul-saya {
+    color: blue;
+    text-align: center;
+    margin: 10;
+    padding: 10px;
+}
+
+/*.judul-saya {
+    color: yellow;
+}*/
+
+#gambar-saya {
+    width: 100px;
+    border-radius: 50px;
+
+    /* display: inline, block, inline-block*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-skill, .list-social-media {
+    list style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.tombol-cv {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
