@@ -17,7 +17,7 @@ console.log(nama)
 //number, string, array, object, boolean, float
 /*let i = "Yusma"*/
 
-let mahasiswa = [
+const mahasiswa = [
     "Yusma Cantika",
     "Enen Arienda",
     "Andari Yasinta",
@@ -25,10 +25,10 @@ let mahasiswa = [
 ]
 
 document.write("<ul>")
-let i = 0;
+let i = 0
 while(i < mahasiswa.length){
     document.write("<li>"+mahasiswa[i]+"</li><br>")
-    i++;
+    i++
 }
 document.write("</ul>")
 
